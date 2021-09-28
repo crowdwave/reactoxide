@@ -1,0 +1,14 @@
+@import url('https://rsms.me/inter/inter.css');
+
+body {
+  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+  font-size: .9em;
+  font-weight: 400;
+  background-color: #151515;
+  color: #c4c4c4;
+  scrollbar-base-color: #5bc266;
+  scrollbar-face-color: #f69935;
+  zoom: 1;
+  margin: 0;
+}
+
