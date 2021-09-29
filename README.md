@@ -12,6 +12,7 @@ You are welcome to post questions in the github issues but don't expect an answe
 
 **Features**:
 
+- Written in TypeScript
 - Monaco editor (the core of VSCode) https://microsoft.github.io/monaco-editor/
 - Tabs
 - File tree 

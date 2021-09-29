@@ -50,7 +50,15 @@ const App = ({emitter}: Props) => {
             </style>
 
             <div className="wrapper">
-                <div className="top" style={{"fontSize": "2em"}}>React OxIDE</div>
+                <div className="top" style={{"fontSize": "2em"}}>
+                    React OxIDE
+                    <div className="float-end" style={{"fontSize": ".5em"}}>
+                        <a href={"https://github.com/bootrino/reactoxide"}>
+                            <img style={{"width": "48px", "marginRight": "10px"}} src={"GitHub-Mark-Light-64px.png"}/>
+                            https://github.com/bootrino/reactoxide
+                        </a>
+                    </div>
+                </div>
                 <div className="middle App" style={{"backgroundColor": "#262731"}}>
                     <Split
                         renderSplitter={() => <SolidSplitter/>}
@@ -77,15 +85,15 @@ const App = ({emitter}: Props) => {
                                 />
                             </div>
                             Show website preview here.
-                            <div style={{"padding": "100px", "width": "100%", "height": "100%" }}>
-                                    <div style={{"width": "100%", "height": "100%" }}>
-                                        <iframe style={{"width": "100%", "height": "100%" }}/>
-                                    </div>
+                            <div style={{"padding": "100px", "width": "100%", "height": "100%"}}>
+                                <div style={{"width": "100%", "height": "100%"}}>
+                                    <iframe style={{"width": "100%", "height": "100%"}}/>
+                                </div>
                             </div>
                         </Split>
                     </Split>
                 </div>
-                <div className="bottom">github @bootrino/reactoxide</div>
+                <div className="bottom"></div>
             </div>
         </>
     );

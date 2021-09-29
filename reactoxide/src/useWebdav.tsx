@@ -13,10 +13,11 @@ import {
 import {FileTree} from "./filetree/components/FileTree";
 import filesize from "filesize";
 
-export const webdavClient = createClient("http://localhost:8000", {
-    authType: AuthType.None,
-    username: "username",
-    password: "password"
+//const connectionstring: string = "http://localhost:8000"
+const connectionstring: string = "https://webdav.reactoxide.com/"
+export const webdavClient = createClient(connectionstring, {
+    //username: "username",
+    //password: "password"
 });
 
 const maxFileSize: number = 10 * 1000 * 1000; // 10 megabytes

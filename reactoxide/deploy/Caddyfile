@@ -1,0 +1,43 @@
+reactoxide.com {
+	redir https://www.reactoxide.com{uri}
+}
+
+www.reactoxide.com {
+    root * /usr/share/caddy
+	file_server  {
+        index index.html
+    }
+
+    log {
+            format single_field common_log
+            output file /var/log/caddy/access_www.log {
+                roll_size 1gb
+                roll_keep 5
+                roll_keep_for 720h
+            }
+        }
+}
+
+webdav.reactoxide.com {
+    @options {
+            method OPTIONS
+    }
+
+    handle  @options  {
+        header {
+            #Access-Control-Allow-Origin https://www.reactoxide.com
+            Access-Control-Allow-Origin *
+            Access-Control-Allow-Methods *
+            Access-Control-Allow-Headers *
+        }
+        respond 204
+    }
+
+    reverse_proxy 127.0.0.1:8000 {
+        header_up Authorization "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+        header_down Access-Control-Allow-Origin *
+        header_down Access-Control-Allow-Methods *
+        header_down Access-Control-Allow-Headers *
+    }
+}
+

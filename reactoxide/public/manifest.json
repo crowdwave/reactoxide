@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React Oxide",
+  "name": "Minimal code editor/IDE in ReactJS",
   "icons": [
     {
       "src": "favicon.ico",
