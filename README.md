@@ -2,7 +2,7 @@
 
 React Oxide is a simple code editor that you can add to your ReactJS projects.
 
-###Live demo at: https://www.reactoxide.com/
+### Live demo at: https://www.reactoxide.com/
 
 **Project status**:
 
@@ -28,7 +28,7 @@ You are welcome to post questions in the github issues but don't expect an answe
 
 This project uses eventemitter for communication between components. There is no state anywhere apart from component local state.
 
-I don't know if this is a bad idea for some reason but it's done this way because I like the approach and find it makes things much more simple anmd easy to understand.
+I don't know if this is a bad idea for some reason but it's done this way because I like the approach and find it makes things more simple and easy to understand.
 
 If you modify this software, please follow the same Event Driven React coding style for consistency.
 
@@ -49,6 +49,8 @@ There's no tests - and I'm not writing any - I made this project for me and I do
 **WebDAV back end**:
 
 React Oxide talks to a WebDAV back end.
+
+There are plenty of webDAV servers around if you do a Google search you'll find some.
 
 I downloaded this Python based WebDAV server and ran it locally with Python 3.9:
 
