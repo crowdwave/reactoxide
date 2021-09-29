@@ -10,7 +10,6 @@ import {
     NewFolderCreateArgs,
     UploadFilesArgs, StatusMessageArgs, SaveFileArgs
 } from "./typedefs";
-import {FileTree} from "./filetree/components/FileTree";
 import filesize from "filesize";
 
 //const connectionstring: string = "http://localhost:8000"
@@ -498,10 +497,10 @@ export const useWebdav = ({emitter}: Props) => {
     }, [emitter])
 
     useEffect(() => {
-        const asyncHandler = async (fileTreeEntry: FileTreeEntry) => {
-            await loadSubtree(fileTreeEntry.filePath);
+        const asyncHandler = async (targetDirectory: string) => {
+            await loadSubtree(targetDirectory);
         }
-        const handler = (fileTreeEntry: FileTreeEntry) => asyncHandler(fileTreeEntry)
+        const handler = (targetDirectory: string) => asyncHandler(targetDirectory)
         emitter.addListener("ON_FILE_UPLOAD_COMPLETE", handler)
         return () => {
             emitter.removeListener("ON_FILE_UPLOAD_COMPLETE", handler)
@@ -543,7 +542,7 @@ export const useWebdav = ({emitter}: Props) => {
                     });
             }
             // after renaming of a file or directory we tell the rest of the system to clean up
-            emitter.emit("ON_FILE_UPLOAD_COMPLETE", fileTreeEntry)
+            emitter.emit("ON_FILE_UPLOAD_COMPLETE", targetDirectory)
 
             // after renaming of a file or directory we make sure nothing is selected
             emitter.emit("DO_DESELECT_ALL")

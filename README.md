@@ -2,6 +2,8 @@
 
 React Oxide is a simple code editor that you can add to your ReactJS projects.
 
+###Live demo at: https://www.reactoxide.com/
+
 **Project status**:
 
 Created 28 Sep 2021 by Andrew Stuart andrew.stuart@supercoders.com.au
@@ -21,6 +23,20 @@ You are welcome to post questions in the github issues but don't expect an answe
 - Bootstrap 5
 
 ![](screenshots/ReactOxideScreenshot1.png)
+
+**Event driven React coding style**:
+
+This project uses eventemitter for communication between components. There is no state anywhere apart from component local state.
+
+I don't know if this is a bad idea for some reason but it's done this way because I like the approach and find it makes things much more simple anmd easy to understand.
+
+If you modify this software, please follow the same Event Driven React coding style for consistency.
+
+**What's missing**:
+
+There's no error handling at all right now - if any file operation fails then there's no information given, it just goes splat.
+
+There's no tests - and I'm not writing any - I made this project for me and I don't need tests.
 
 **Credits**:
 

@@ -282,7 +282,7 @@ export const MultiFileEditor = ({emitter, setOpenFiles, getOpenFiles}: Props) =>
                            style={{"borderRadius": 0}}
                            data-bs-toggle="tab"
                            onClick={() => setCurrentModel(monaco.Uri.file(item.uri.path))}
-                           href="#profile">
+                           >
                             {filenameToDisplay}
                             <span
                                 className="close"

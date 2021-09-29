@@ -1,10 +1,10 @@
 import React from 'react';
 import {DefaultSplitter, Split, RenderSplitterProps} from '@geoffcox/react-splitter';
 import {VerticalStripedSplitter, HorizontalStripedSplitter, SolidSplitter} from './CustomSplitters';
-import TestShadow from './TestShadow';
 import ShadowDom from './ShadowDom';
 import EventEmitter from "eventemitter3";
 import {MultiFileEditor} from "./editor/MultiFileEditor"
+import {FiletreeRoot} from "./filetree/FiletreeRoot";
 
 type Props = {
     emitter: EventEmitter<string | symbol, any>;
@@ -68,7 +68,7 @@ const App = ({emitter}: Props) => {
                         <div style={{"height": "100%", "overflowY": "scroll"}}>
                             <ShadowDom>
                                 <div style={{"padding": "10px"}}>
-                                    <TestShadow emitter={emitter}/>
+                                    <FiletreeRoot emitter={emitter}/>
                                 </div>
                             </ShadowDom>
                         </div>
@@ -93,7 +93,7 @@ const App = ({emitter}: Props) => {
                         </Split>
                     </Split>
                 </div>
-                <div className="bottom"></div>
+                <div className="bottom">copyright 2021 Andrew Stuart andrew.stuart@supercoders.com.au</div>
             </div>
         </>
     );

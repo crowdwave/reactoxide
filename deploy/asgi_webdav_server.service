@@ -1,0 +1,14 @@
+[Unit]
+Description=asgi_webdav_server
+After=multi-user.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/home/ubuntu/venv3.9/bin/python3.9 -m asgi_webdav  --port 8000 --root-path /home/ubuntu/reactoxide/
+Restart=always
+RestartSec=100ms
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/reactoxide/

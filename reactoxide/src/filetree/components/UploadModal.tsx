@@ -116,7 +116,13 @@ export const UploadModal = (props: Props) => {
                         <div>
                             {
                                 Object.entries(getStatusMessages).map(([key, val]) =>
-                                    <span key={key}>{key}: {val}</span>
+                                    (
+                                        <>
+                                            <span style={{"color": "white"}} key={key}>{key}: </span>
+                                            <span style={{"color": "gold"}} key={key}
+                                                  className={"float-end"}>{val}</span>
+                                        </>
+                                    )
                                 )
                             }
                         </div>
@@ -131,9 +137,9 @@ export const UploadModal = (props: Props) => {
                                         {getFilesToUpload.map((file, index) =>
                                             <li key={index}>
                                                 {file.name} {filesize(file.size)}
-                                                {   (file.size > maxFileSize)
-                                                    &&
-                                                    <span style={{"color": "red"}}>
+                                                {(file.size > maxFileSize)
+                                                &&
+                                                <span style={{"color": "red"}}>
                                                         {`  FILE EXCEEDS MAX SIZE OF: ${filesize(maxFileSize)}`}
                                                     </span>
                                                 }
@@ -161,22 +167,24 @@ export const UploadModal = (props: Props) => {
             <Modal.Footer>
                 {(getUploadComplete) ?
                     <>
-                        upload complete!
+                        upload complete!&nbsp;&nbsp;
                         <Button variant="secondary" onClick={cancel}>
                             close
                         </Button>
                     </>
                     :
                     <>
-                        <Button variant="secondary" onClick={cancel}>
-                            cancel
-                        </Button>
+                        {(Object.keys(getStatusMessages).length === 0) &&
+                            <Button variant="secondary" onClick={cancel}>
+                                cancel
+                            </Button>
+                        }
                         <Button
                             variant="primary"
                             onClick={doUploadFiles}
                             disabled={(getFilesToUpload.length === 0) || getMaxFileSizeExceeded}
                         >
-                            start upload!
+                            {(Object.keys(getStatusMessages).length === 0) ? "start upload!" : "uploading, please wait"}
                         </Button>
                     </>
                 }
