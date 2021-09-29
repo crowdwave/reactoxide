@@ -234,6 +234,13 @@ export const MultiFileEditor = ({emitter, setOpenFiles, getOpenFiles}: Props) =>
         }
     }
 
+    const mouseDownHandler = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>, itemUriPath: string) => {
+        // handle middle mouse button click on tab to close it.
+        if (e.button === 1) {
+            closeTab(e, itemUriPath)
+        }
+    }
+
     const closeTab = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>, itemUriPath: string) => {
         // if we don't stop propagation then the click event goes to the file and sets it as the currentModel
         e.stopPropagation()
@@ -281,8 +288,9 @@ export const MultiFileEditor = ({emitter, setOpenFiles, getOpenFiles}: Props) =>
                         <a className={`nav-link ${(item.uri.path === getCurrentModel.path) && "active"}`}
                            style={{"borderRadius": 0}}
                            data-bs-toggle="tab"
+                           onMouseDown={(e) => mouseDownHandler(e, item.uri.path)}
                            onClick={() => setCurrentModel(monaco.Uri.file(item.uri.path))}
-                           >
+                        >
                             {filenameToDisplay}
                             <span
                                 className="close"
