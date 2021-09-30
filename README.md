@@ -2,6 +2,8 @@
 
 React Oxide is a simple code editor that you can add to your ReactJS projects.
 
+### YouTube overview at: https://youtu.be/OmxKAWeN38I
+
 ### Live demo at: https://www.reactoxide.com/
 
 **Project status**:
