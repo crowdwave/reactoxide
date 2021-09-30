@@ -15,8 +15,6 @@ type MonacoEditorOptions = monaco.editor.IStandaloneEditorConstructionOptions
 
 type Props = {
     emitter: EventEmitter<string | symbol, any>;
-    setOpenFiles: React.Dispatch<React.SetStateAction<string[]>>;
-    getOpenFiles: string[];
 }
 
 type loadFileResult = {
@@ -24,12 +22,13 @@ type loadFileResult = {
     response: Buffer | ArrayBuffer | string | ResponseDataDetailed<BufferLike | string>,
 }
 
-export const MultiFileEditor = ({emitter, setOpenFiles, getOpenFiles}: Props) => {
+export const MultiFileEditor = ({emitter}: Props) => {
     const editorRef = useRef<MonacoEditor>();
     const monacoRef = useRef<Monaco>();
     const [getRerender, setRerender] = useState(false);
     const [isEditorReady, setIsEditorReady] = useState(false);
     const [getCurrentModel, setCurrentModel] = useState<Uri>();
+    const [getOpenFiles, setOpenFiles] = React.useState<string[]>([])
 
     useEffect(() => {
         const handleFileLoaded = (data: loadFileResult) => {

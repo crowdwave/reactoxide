@@ -11,7 +11,6 @@ type Props = {
 }
 
 const App = ({emitter}: Props) => {
-    const [getOpenFiles, setOpenFiles] = React.useState<string[]>([])
 
     return (
         <>
@@ -79,10 +78,7 @@ const App = ({emitter}: Props) => {
                             initialPrimarySize='60%'
                         >
                             <div style={{"height": "100%"}}>
-                                <MultiFileEditor emitter={emitter}
-                                                 setOpenFiles={setOpenFiles}
-                                                 getOpenFiles={getOpenFiles}
-                                />
+                                <MultiFileEditor emitter={emitter}/>
                             </div>
                             Show website preview here.
                             <div style={{"padding": "100px", "width": "100%", "height": "100%"}}>
